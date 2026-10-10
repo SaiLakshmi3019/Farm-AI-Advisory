@@ -632,7 +632,7 @@ function DashboardOverview({ history, setActivePage, name, Icon }) {
                 const image = ['tomato', 'potato', 'pepper', 'corn', 'grape', 'strawberry'].find((name) => crop.includes(name))
                 return (
                   <article className="workspace-recent-row" key={item.id}>
-                    {image ? <img src={`/images/${image}.jpg`} alt={`${item.crop_type} crop`} /> : <div className="workspace-recent-placeholder"><Icon name="leaf" size={20} /></div>}
+                    {image ? <img src={`/Farm-AI-Advisory/images/${image}.jpg`} alt={`${item.crop_type} crop`} /> : <div className="workspace-recent-placeholder"><Icon name="leaf" size={20} /></div>}
                     <div className="workspace-recent-content">
                       <strong>{item.crop_type || 'Unknown crop'}</strong>
                       <span>{item.disease || 'Unclassified condition'}</span>
@@ -997,3 +997,4 @@ function FarmWorkspace({ farmer, onLogout, onHome }) {
 }
 
 export { DashboardOverview, ReportsPage, FarmActivityPage, CropCalendarPage, FarmWorkspace }
+

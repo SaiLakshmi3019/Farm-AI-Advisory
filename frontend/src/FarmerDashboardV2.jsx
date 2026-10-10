@@ -326,7 +326,7 @@ function FarmerDashboardV2({ farmer, onLogout, onHome }) {
     <section className="v2-dashboard">
       <section className="v2-hero">
         <img
-          src="/images/farm-dashboard-hero.svg"
+          src="/Farm-AI-Advisory/images/farm-dashboard-hero.svg"
           alt="Smart farm with healthy crop"
           className="v2-hero-image"
         />
@@ -480,3 +480,4 @@ function Step({ number, title, text }) {
 }
 
 export default FarmerDashboardV2
+

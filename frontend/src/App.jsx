@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Chatbot from './Chatbot.jsx'
 import CropDetection from './CropDetection.jsx'
 import { FarmWorkspace } from './FarmTools.jsx'
@@ -464,7 +464,7 @@ function AuthLayout({ title, subtitle, children, onBack }) {
               marginBottom: 45,
             }}
           >
-            ← Back to Home
+            ? Back to Home
           </button>
 
           <div
@@ -652,7 +652,7 @@ function HomePage({ onLogin, onSignup, onChatbot }) {
                 cursor: 'pointer',
               }}
             >
-              Create Account →
+              Create Account ?
             </button>
 
             <button
@@ -684,15 +684,15 @@ function HomePage({ onLogin, onSignup, onChatbot }) {
 
           <div className="home-farm-visual">
             <div className="home-farm-main-photo">
-              <img src="/images/tomato.jpg" alt="Ripe tomatoes growing on the vine" />
+              <img src="/Farm-AI-Advisory/images/tomato.jpg" alt="Ripe tomatoes growing on the vine" />
               <div className="home-photo-caption">
                 <span>FIELD NOTES</span>
                 <strong>Observe the crop. Ask better questions.</strong>
               </div>
             </div>
             <div className="home-farm-photo-row">
-              <img src="/images/potato.jpg" alt="Potatoes freshly lifted from healthy soil" />
-              <img src="/images/pepper.jpg" alt="Green peppers growing among leaves" />
+              <img src="/Farm-AI-Advisory/images/potato.jpg" alt="Potatoes freshly lifted from healthy soil" />
+              <img src="/Farm-AI-Advisory/images/pepper.jpg" alt="Green peppers growing among leaves" />
             </div>
         </div>
       </main>
@@ -709,10 +709,10 @@ function HomePage({ onLogin, onSignup, onChatbot }) {
         </div>
         <div className="home-crop-photos">
           {[
-            ['Tomato', '/images/tomato.jpg', 'Tomatoes on the vine'],
-            ['Potato', '/images/potato.jpg', 'Potatoes in rich soil'],
-            ['Pepper', '/images/pepper.jpg', 'Green peppers on the plant'],
-            ['Corn', '/images/corn.jpg', 'Corn growing in a field'],
+            ['Tomato', '/Farm-AI-Advisory/images/tomato.jpg', 'Tomatoes on the vine'],
+            ['Potato', '/Farm-AI-Advisory/images/potato.jpg', 'Potatoes in rich soil'],
+            ['Pepper', '/Farm-AI-Advisory/images/pepper.jpg', 'Green peppers on the plant'],
+            ['Corn', '/Farm-AI-Advisory/images/corn.jpg', 'Corn growing in a field'],
           ].map(([crop, image, description]) => (
             <figure className="home-crop-photo" key={crop}>
               <img src={image} alt={description} loading="lazy" />
@@ -854,7 +854,7 @@ function LoginScreen({
           cursor: 'pointer',
         }}
       >
-        Sign In →
+        Sign In ?
       </button>
 
       <div
@@ -1360,7 +1360,7 @@ export function Dashboard({
               textAlign: 'left',
             }}
           >
-            ← Back to Home
+            ? Back to Home
           </button>
 
           <button
@@ -1546,7 +1546,7 @@ export function Dashboard({
                     cursor: 'pointer',
                   }}
                 >
-                  Start Crop Analysis →
+                  Start Crop Analysis ?
                 </button>
               </div>
             </section>
@@ -1782,7 +1782,7 @@ export function Dashboard({
                   <article key={item.id} style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) auto auto', alignItems: 'center', gap: 16, padding: '14px 18px', borderBottom: '1px solid #edf1ed' }}>
                     <div>
                       <strong style={{ display: 'block', color: '#244638', fontSize: 14 }}>{item.disease || 'Unclassified condition'}</strong>
-                      <span style={{ color: '#718076', fontSize: 12 }}>{item.crop_type || 'Unknown crop'} · {item.created_at ? new Date(`${item.created_at}Z`).toLocaleString() : 'Date unavailable'}</span>
+                      <span style={{ color: '#718076', fontSize: 12 }}>{item.crop_type || 'Unknown crop'} � {item.created_at ? new Date(`${item.created_at}Z`).toLocaleString() : 'Date unavailable'}</span>
                     </div>
                     <strong style={{ color: '#244638', fontSize: 13 }}>{Number(item.confidence || 0).toFixed(1)}%<span style={{ display: 'block', color: '#718076', fontSize: 10, fontWeight: 400 }}>model score</span></strong>
                     <span style={{ color: '#765d34', fontSize: 11 }}>{item.severity || 'Needs assessment'}</span>

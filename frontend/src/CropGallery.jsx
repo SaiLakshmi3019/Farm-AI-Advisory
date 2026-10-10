@@ -2,32 +2,32 @@ function CropGallery() {
   const crops = [
     {
       name: 'Tomato',
-      image: '/images/tomato.jpg',
+      image: '/Farm-AI-Advisory/images/tomato.jpg',
       text: 'Disease & health detection',
     },
     {
       name: 'Potato',
-      image: '/images/potato.jpg',
+      image: '/Farm-AI-Advisory/images/potato.jpg',
       text: 'Disease & health detection',
     },
     {
       name: 'Pepper',
-      image: '/images/pepper.jpg',
+      image: '/Farm-AI-Advisory/images/pepper.jpg',
       text: 'Disease & health detection',
     },
     {
       name: 'Corn',
-      image: '/images/corn.jpg',
+      image: '/Farm-AI-Advisory/images/corn.jpg',
       text: 'Disease & health detection',
     },
     {
       name: 'Grape',
-      image: '/images/grape.jpg',
+      image: '/Farm-AI-Advisory/images/grape.jpg',
       text: 'Disease & health detection',
     },
     {
       name: 'Strawberry',
-      image: '/images/strawberry.jpg',
+      image: '/Farm-AI-Advisory/images/strawberry.jpg',
       text: 'Disease & health detection',
     },
   ]
