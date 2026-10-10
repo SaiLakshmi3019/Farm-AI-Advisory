@@ -226,7 +226,7 @@ function FarmerDashboardV2({ farmer, onLogout, onHome }) {
               <strong>{name}</strong>
               <span>{email}</span>
             </div>
-            <span className="v2-chevron">⌄</span>
+            <span className="v2-chevron">âŒ„</span>
           </div>
         </header>
 
@@ -333,7 +333,7 @@ function FarmerDashboardV2({ farmer, onLogout, onHome }) {
         <div className="v2-hero-overlay">
           <div className="v2-hero-copy">
             <div className="v2-hero-kicker">
-              SMART FARMING <span>•</span> BETTER YIELDS <span>•</span> SUSTAINABLE FUTURE
+              SMART FARMING <span>â€¢</span> BETTER YIELDS <span>â€¢</span> SUSTAINABLE FUTURE
             </div>
             <h2>Healthy Crops, Brighter Future</h2>
             <p>
@@ -423,7 +423,7 @@ function FarmerDashboardV2({ farmer, onLogout, onHome }) {
         </div>
 
         <div className="v2-bottom-copy">
-          <span className="v2-soft-label">FARM AI • EVERYDAY SUPPORT</span>
+          <span className="v2-soft-label">FARM AI â€¢ EVERYDAY SUPPORT</span>
           <h3>From crop image to clear action.</h3>
           <p>
             Scan a crop, understand the result, and move forward with a
