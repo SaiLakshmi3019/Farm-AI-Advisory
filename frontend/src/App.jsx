@@ -1782,7 +1782,7 @@ export function Dashboard({
                   <article key={item.id} style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) auto auto', alignItems: 'center', gap: 16, padding: '14px 18px', borderBottom: '1px solid #edf1ed' }}>
                     <div>
                       <strong style={{ display: 'block', color: '#244638', fontSize: 14 }}>{item.disease || 'Unclassified condition'}</strong>
-                      <span style={{ color: '#718076', fontSize: 12 }}>{item.crop_type || 'Unknown crop'} · {item.created_at ? new Date(`${item.created_at}Z`).toLocaleString() : 'Date unavailable'}</span>
+                      <span style={{ color: '#718076', fontSize: 12 }}>{item.crop_type || 'Unknown crop'} � {item.created_at ? new Date(`${item.created_at}Z`).toLocaleString() : 'Date unavailable'}</span>
                     </div>
                     <strong style={{ color: '#244638', fontSize: 13 }}>{Number(item.confidence || 0).toFixed(1)}%<span style={{ display: 'block', color: '#718076', fontSize: 10, fontWeight: 400 }}>model score</span></strong>
                     <span style={{ color: '#765d34', fontSize: 11 }}>{item.severity || 'Needs assessment'}</span>
