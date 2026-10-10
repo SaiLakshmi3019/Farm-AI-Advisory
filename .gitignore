@@ -27,3 +27,4 @@ backend/uploads/
 *.pt
 *.pth
 *.onnx
+backend/create_tables()
