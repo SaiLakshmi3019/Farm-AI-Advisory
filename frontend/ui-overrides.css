@@ -1,0 +1,38 @@
+/* FINAL FARM AI AUTH IMAGE + FLOATING CHAT CLEANUP */
+.auth-page {
+  position: relative !important;
+  overflow: hidden !important;
+  background:
+    linear-gradient(90deg, rgba(3, 50, 37, .96) 0%, rgba(5, 83, 59, .82) 43%, rgba(5, 83, 59, .2) 70%, rgba(0,0,0,0) 100%),
+    url('/images/farm-signin.svg') center / cover no-repeat !important;
+}
+.auth-page::before {
+  content: "SMART FARMING";
+  position: absolute;
+  left: 7%;
+  bottom: 9%;
+  z-index: 0;
+  color: rgba(255,255,255,.16);
+  font-size: clamp(42px, 7vw, 94px);
+  font-weight: 900;
+  letter-spacing: 2px;
+  pointer-events: none;
+}
+.auth-page .auth-card,
+.auth-page .auth-container,
+.auth-page .auth-form {
+  position: relative;
+  z-index: 2;
+}
+.auth-page .auth-card {
+  box-shadow: 0 30px 80px rgba(0, 45, 33, .30) !important;
+  backdrop-filter: blur(8px);
+}
+@media (max-width: 850px) {
+  .auth-page {
+    background:
+      linear-gradient(180deg, rgba(3,50,37,.88), rgba(3,50,37,.38)),
+      url('/images/farm-signin.svg') center / cover no-repeat !important;
+  }
+  .auth-page::before { display:none; }
+}
