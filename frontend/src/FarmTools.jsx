@@ -78,14 +78,14 @@ function DashboardWeather() {
   }
 
   const weatherIcon = (code) => {
-    if (code === 0) return '�~?️'
-    if (code === 1 || code === 2) return '�YO�️'
-    if (code === 3) return '�~�️'
-    if (code === 45 || code === 48) return '�YO�️'
-    if ([51, 53, 55, 61, 63, 65, 80, 81, 82].includes(code)) return '�YO�️'
-    if ([71, 73, 75].includes(code)) return '�"️'
-    if ([95, 96, 99].includes(code)) return '�>^️'
-    return '�YO�️'
+    if (code === 0) return 'Sunny'
+    if (code === 1 || code === 2) return 'Cloudy'
+    if (code === 3) return 'Overcast'
+    if (code === 45 || code === 48) return 'Cloudy'
+    if ([51, 53, 55, 61, 63, 65, 80, 81, 82].includes(code)) return 'Cloudy'
+    if ([71, 73, 75].includes(code)) return 'Snow'
+    if ([95, 96, 99].includes(code)) return 'Thunderstorm'
+    return 'Cloudy'
   }
 
   async function getWeather(searchRegion) {
@@ -223,7 +223,7 @@ function DashboardWeather() {
               fontWeight: 800,
             }}
           >
-            �Y"� {location.name}
+            {location.name}
             {location.admin1 ? `, ${location.admin1}` : ''}
           </div>
         )}
@@ -366,7 +366,7 @@ function DashboardWeather() {
                     fontSize: 30,
                   }}
                 >
-                  {Math.round(weather.current.temperature_2m)}�C
+                  {Math.round(weather.current.temperature_2m)} deg C
                 </strong>
               </div>
             </div>
@@ -384,7 +384,7 @@ function DashboardWeather() {
                   'Feels like',
                   `${Math.round(
                     weather.current.apparent_temperature,
-                  )}�C`,
+                  )} deg C`,
                 ],
                 [
                   'Humidity',
@@ -528,7 +528,7 @@ function DashboardWeather() {
                     {Math.round(
                       weather.daily.temperature_2m_max[index],
                     )}
-                    �
+                    -
                   </b>
 
                   <span
@@ -540,7 +540,7 @@ function DashboardWeather() {
                     {Math.round(
                       weather.daily.temperature_2m_min[index],
                     )}
-                    �
+                    -
                   </span>
                 </div>
 
@@ -590,7 +590,7 @@ function DashboardOverview({ history, setActivePage, name, Icon }) {
     <div className="workspace-overview">
       <section className="workspace-hero">
         <div className="workspace-hero-copy">
-          <span>FARM MONITORING � {name.toUpperCase()}</span>
+          <span>FARM MONITORING - {name.toUpperCase()}</span>
           <h2>Healthy Crops,<br /><strong>Brighter Future</strong></h2>
           <p>Screen supported crops, review saved observations, and organize the work ahead.</p>
           <button type="button" onClick={() => setActivePage('detection')}>
@@ -692,7 +692,7 @@ function DashboardOverview({ history, setActivePage, name, Icon }) {
 
       <footer className="workspace-footer-banner">
         <Icon name="leaf" size={23} />
-        <div><strong>Smarter Farming for a Greener Tomorrow</strong><span>Field records � Crop insights � Better decisions</span></div>
+        <div><strong>Smarter Farming for a Greener Tomorrow</strong><span>Field records - Crop insights - Better decisions</span></div>
         <button type="button" aria-label="Open crop calendar" onClick={() => setActivePage('planner')}><Icon name="calendar" size={19} /></button>
       </footer>
     </div>
@@ -722,7 +722,7 @@ function ReportsPage({ history, farmerName, onDownload }) {
           {filtered.map((item) => (
             <article className="report-row" key={item.id}>
               <div className="report-row-mark">{item.disease?.toLowerCase().includes('healthy') ? 'OK' : 'AI'}</div>
-              <div className="report-row-main"><strong>{item.crop_type || 'Unknown crop'} � {item.disease || 'Unclassified'}</strong><span>{item.created_at ? new Date(`${item.created_at}Z`).toLocaleString() : 'Date unavailable'} � {confidencePercent(item.confidence).toFixed(1)}% model score</span></div>
+              <div className="report-row-main"><strong>{item.crop_type || 'Unknown crop'} - {item.disease || 'Unclassified'}</strong><span>{item.created_at ? new Date(`${item.created_at}Z`).toLocaleString() : 'Date unavailable'} - {confidencePercent(item.confidence).toFixed(1)}% model score</span></div>
               <span className="report-severity">{item.severity || 'Needs field assessment'}</span>
               <button type="button" className="report-download" onClick={() => onDownload(item, farmerName)}>Download PDF <span aria-hidden="true">?</span></button>
             </article>
@@ -765,7 +765,7 @@ function FarmActivityPage({ activities, setActivities }) {
         {activities.length ? activities.map((item) => (
           <article className="farm-activity-row" key={item.id}>
             <span className="farm-activity-date">{displayDate(item.date)}</span>
-            <div><strong>{item.crop}</strong><span>{item.type}{item.notes ? ` � ${item.notes}` : ''}</span></div>
+            <div><strong>{item.crop}</strong><span>{item.type}{item.notes ? ` - ${item.notes}` : ''}</span></div>
             <button type="button" className="farm-remove-button" aria-label={`Remove ${item.type} entry for ${item.crop}`} onClick={() => setActivities((current) => current.filter((activity) => activity.id !== item.id))}>Remove</button>
           </article>
         )) : <div className="farm-empty-state"><strong>Your field journal is ready</strong><span>Add irrigation, scouting, planting, harvest, and other completed work.</span></div>}
@@ -827,7 +827,7 @@ function CropCalendarPage({ events, setEvents }) {
           </form>
           <div className="planner-event-list">
             <h3>Planned for this day</h3>
-            {selectedEvents.length ? selectedEvents.map((event) => <article className="planner-event" key={event.id}><div><strong>{event.type} � {event.crop}</strong><span>{event.notes || 'No extra notes'}</span></div><button type="button" aria-label={`Remove ${event.type} for ${event.crop}`} onClick={() => setEvents((current) => current.filter((item) => item.id !== event.id))}>�</button></article>) : <p>No activities planned for this date.</p>}
+            {selectedEvents.length ? selectedEvents.map((event) => <article className="planner-event" key={event.id}><div><strong>{event.type} - {event.crop}</strong><span>{event.notes || 'No extra notes'}</span></div><button type="button" aria-label={`Remove ${event.type} for ${event.crop}`} onClick={() => setEvents((current) => current.filter((item) => item.id !== event.id))}>X</button></article>) : <p>No activities planned for this date.</p>}
           </div>
         </section>
       </div>
@@ -862,7 +862,7 @@ function AnalysisHistoryPage({ history, loading, error, onReports }) {
       <header className="farm-tool-heading"><div><span>FIELD RECORD</span><h2>Analysis history</h2><p>Review saved crop screenings and compare observations over time.</p></div><button type="button" className="farm-primary-button" onClick={onReports}>Manage reports</button></header>
       {loading ? <div className="farm-empty-state">Loading saved analyses...</div> : error ? <div className="farm-empty-state error" role="alert">{error}</div> : history.length ? (
         <div className="report-list">
-          {history.map((item) => <article className="report-row" key={item.id}><div className="report-row-mark"><WorkspaceIcon name="leaf" size={17} /></div><div className="report-row-main"><strong>{item.crop_type || 'Unknown crop'} � {item.disease || 'Unclassified'}</strong><span>{item.created_at ? new Date(`${item.created_at}Z`).toLocaleString() : 'Date unavailable'} � {confidencePercent(item.confidence).toFixed(1)}% model score</span></div><span className="report-severity">{item.severity || 'Needs field assessment'}</span></article>)}
+          {history.map((item) => <article className="report-row" key={item.id}><div className="report-row-mark"><WorkspaceIcon name="leaf" size={17} /></div><div className="report-row-main"><strong>{item.crop_type || 'Unknown crop'} - {item.disease || 'Unclassified'}</strong><span>{item.created_at ? new Date(`${item.created_at}Z`).toLocaleString() : 'Date unavailable'} - {confidencePercent(item.confidence).toFixed(1)}% model score</span></div><span className="report-severity">{item.severity || 'Needs field assessment'}</span></article>)}
           <p className="farm-tool-note">Confidence history is not a measure of disease progression. Compare symptoms on the plants themselves.</p>
         </div>
       ) : <div className="farm-empty-state"><strong>No analysis history yet</strong><span>Completed crop screenings appear here automatically.</span></div>}
@@ -875,7 +875,7 @@ function RecommendationPage({ history, setActivePage }) {
   return (
     <section className="farm-tool-page">
       <header className="farm-tool-heading"><div><span>FIELD GUIDANCE</span><h2>Recommendations</h2><p>Practical next steps based on saved crop screenings.</p></div></header>
-      {latest?.recommendation ? <article className="recommendation-detail"><span>{latest.crop_type} � {latest.disease}</span><h3>{latest.disease?.toLowerCase().includes('healthy') ? 'Keep monitoring crop health' : 'Review these field actions'}</h3><p>{latest.recommendation}</p><button type="button" className="farm-primary-button" onClick={() => setActivePage('reports')}>Open advisory report</button></article> : <div className="farm-empty-state"><strong>No scan-based guidance yet</strong><span>Complete a crop scan to see condition-specific next steps.</span><button type="button" className="farm-primary-button" onClick={() => setActivePage('detection')}>Start crop analysis</button></div>}
+      {latest?.recommendation ? <article className="recommendation-detail"><span>{latest.crop_type} - {latest.disease}</span><h3>{latest.disease?.toLowerCase().includes('healthy') ? 'Keep monitoring crop health' : 'Review these field actions'}</h3><p>{latest.recommendation}</p><button type="button" className="farm-primary-button" onClick={() => setActivePage('reports')}>Open advisory report</button></article> : <div className="farm-empty-state"><strong>No scan-based guidance yet</strong><span>Complete a crop scan to see condition-specific next steps.</span><button type="button" className="farm-primary-button" onClick={() => setActivePage('detection')}>Start crop analysis</button></div>}
       <p className="farm-tool-note">AI guidance is a screening aid. Confirm important treatment decisions with a qualified local agricultural adviser.</p>
     </section>
   )
@@ -924,7 +924,7 @@ function FarmWorkspace({ farmer, onLogout, onHome }) {
       report.setFontSize(18)
       report.text('Farm AI Advisory Report', 16, 19)
       report.setFontSize(9)
-      report.text('IMAGE SCREENING � FIELD VERIFICATION REQUIRED', 16, 28)
+      report.text('IMAGE SCREENING - FIELD VERIFICATION REQUIRED', 16, 28)
       report.setTextColor(28, 52, 40)
       report.setFontSize(11)
       report.text(`Prepared for: ${farmerName || 'Farmer'}`, 16, 52)
