@@ -78,10 +78,10 @@ function DashboardWeather() {
   }
 
   const weatherIcon = (code) => {
-    if (code === 0) return 'â˜€ï¸'
-    if (code === 1 || code === 2) return 'ðŸŒ¤ï¸'
-    if (code === 3) return 'â˜ï¸'
-    if (code === 45 || code === 48) return 'ðŸŒ«ï¸'
+    if (code === 0) return 'Sunny'
+    if (code === 1 || code === 2) return 'Partly cloudy'
+    if (code === 3) return 'Cloudy'
+    if (code === 45 || code === 48) return 'Fog'
     if ([51, 53, 55, 61, 63, 65, 80, 81, 82].includes(code)) return 'ðŸŒ§ï¸'
     if ([71, 73, 75].includes(code)) return 'â„ï¸'
     if ([95, 96, 99].includes(code)) return 'â›ˆï¸'
